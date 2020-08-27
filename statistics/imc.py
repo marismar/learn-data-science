@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import numpy as np
 from random import uniform, randint
 
@@ -45,9 +46,29 @@ if __name__ == '__main__':
   print('Max: ', tabulatedImc(np.amax(imc)))
   print('Max - Min: ', tabulatedImc(np.ptp(imc)))
 
-  print('Media: ', tabulatedImc(np.median(imc)))
-  print('Media por força: ', tabulatedImc(np.average(imc)))
-  print('Media aritmetica: ', tabulatedImc(np.mean(imc)))
+  print('Média: ', tabulatedImc(np.median(imc)))
+  print('Média por força: ', tabulatedImc(np.average(imc)))
+  print('Média aritmética: ', tabulatedImc(np.mean(imc)))
   
-  print('Desvio padrao: ', tabulatedImc(np.std(imc)))
-  print('Variancia: ', tabulatedImc(np.var(imc)))
+  print('Desvio padrão: ', tabulatedImc(np.std(imc)))
+  print('Variância: ', tabulatedImc(np.var(imc)))
+
+  print('IMC médio do 1º Percentil: ', tabulatedImc(np.median(np.percentile(imc, q = range(0, 25)))))
+  print('IMC médio do 2º Percentil: ', tabulatedImc(np.median(np.percentile(imc, q = range(26, 50)))))
+  print('IMC médio do 3º Percentil: ', tabulatedImc(np.median(np.percentile(imc, q = range(51, 75)))))
+  print('IMC médio do 4º Percentil: ', tabulatedImc(np.median(np.percentile(imc, q = range(76, 100)))))
+
+  values = []
+  index = [1, 2, 3, 4]
+
+  values.append(np.median(np.percentile(imc, q = range(0, 25))))
+  values.append(np.median(np.percentile(imc, q = range(26, 50))))
+  values.append(np.median(np.percentile(imc, q = range(51, 75))))
+  values.append(np.median(np.percentile(imc, q = range(76, 100))))
+
+  plt.title('Percentil dos IMC da população')  
+  plt.ylabel('Valor')
+  plt.xlabel('Percentil')
+  
+  plt.plot(index, values)
+  plt.show()
