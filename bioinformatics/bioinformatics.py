@@ -1,4 +1,4 @@
-#2nd Case Study: Comparing genomes
+#2nd Case Study: Comparing human and bacteria genomes
 import matplotlib.pyplot as plt
 from itertools import permutations
 
