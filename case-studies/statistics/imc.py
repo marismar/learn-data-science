@@ -1,3 +1,4 @@
+#4th Case Study: Statistical Analysis of BMI (body mass index) based on random data
 import matplotlib.pyplot as plt
 import numpy as np
 from random import uniform, randint
